@@ -51,7 +51,7 @@ template<class T, class Base, class... Args>
 decltype(auto) operator >> (T&& v, ufcs::TupleParam<Base, Args...> tuple)
 {
 	auto f = [&](auto&&... args) {
-		return Base::free(v, std::forward<decltype(args)>(args)...);
+		return Base::free(std::forward<T>(v), std::forward<decltype(args)>(args)...);
 	};
 	return ufcs::param_expand(f, tuple.m_param);
 }

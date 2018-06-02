@@ -55,6 +55,6 @@ MIT
 # Future
 
 ### From C++20
-We might change  
-`USE_UFCS(printf, std::);` to `USE_UFCS(printf, std);`  
+We might retouch  
+`USE_UFCS(func, namespace::);` to `USE_UFCS(func, namespace);`  
  by using `__VA_OPT__`
