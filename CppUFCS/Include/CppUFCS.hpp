@@ -56,7 +56,7 @@ decltype(auto) operator | (T&& v, ufcs::TupleParam<Base, Args...> tuple)
 	return ufcs::param_expand(f, tuple.m_param);
 }
 
-#define USE_UFCS(funcName,...) \
+#define USE_UFCS(funcName,...)\
 constexpr struct funcName##_op\
 {\
 	template<class T,class... Args> \
