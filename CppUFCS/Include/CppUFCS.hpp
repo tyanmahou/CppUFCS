@@ -48,7 +48,7 @@ namespace ufcs
 ///method chain
 ///<summary>
 template<class T, class Base, class... Args>
-decltype(auto) operator | (T&& v, ufcs::TupleParam<Base, Args...> tuple)
+decltype(auto) operator >> (T&& v, ufcs::TupleParam<Base, Args...> tuple)
 {
 	auto f = [&](auto&&... args) {
 		return Base::free(v, std::forward<decltype(args)>(args)...);
@@ -75,6 +75,6 @@ constexpr struct funcName##_op\
 	template<class... Args>\
 	ufcs::TupleParam<funcName##_op,Args...> operator()(Args&&... args)const\
 	{\
-		return { std::make_tuple(std::forward<Args>(args)...) };\
+		return { std::forward<Args>(args)... };\
 	}\
 } funcName##_
