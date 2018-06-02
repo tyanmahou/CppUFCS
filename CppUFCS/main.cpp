@@ -31,9 +31,15 @@ int main()
 	Hoge hoge;
 	Foo foo;
 
-	int result = (hoge >> func_(1)) + (foo >> func_(2));
-
-	"result is %d\n" >> printf_(result);
-
+	//method chain
+	{
+		int result = (hoge >> func_(1)) + (foo >> func_(2));
+		"result is %d\n" >> printf_(result);
+	}
+	//free
+	{
+		int result2 = func_(hoge, 3) + func_(foo, 4);
+		printf_("result is %d\n", result2);
+	}
 	return 0;
 }
