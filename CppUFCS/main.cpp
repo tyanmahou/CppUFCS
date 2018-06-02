@@ -8,11 +8,7 @@ struct Hoge
 	{
 		return a + 2;
 	}
-	void printf() {
-		std::cout << "Hoge" << std::endl;
-	}
 };
-
 struct Foo
 {};
 
@@ -26,7 +22,7 @@ namespace UFCS
 	USE_UFCS(func);
 
 	//If a free function is defined in the namespace 
-	USE_UFCS(printf,std::);
+	USE_UFCS(printf, std::);
 }
 
 int main()
